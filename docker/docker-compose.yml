@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    # volumes:
+    #   - /mosquitto/config:/mosquitto/config
+    #   - /mosquitto/data:/mosquitto/data
+    #   - /mosquitto/log:/mosquitto/log
+
+  
+  mongo:
+    image: mongo
+    restart: "no"
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: example
+    #   MONGODB_DATABASE: "growsys"
+    #   MONGODB_USER: "growsys"
+    #   MONGODB_PASS: "weed@123"
+
+    ports:
+      - "27017:27017"
+     
