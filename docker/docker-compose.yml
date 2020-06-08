@@ -1,3 +1,11 @@
+##########################################################################################
+# If you have problems to run behind VPN, create and use this network.
+#
+#             $ docker network create docker-network --subnet 172.24.24.0/24
+#
+##########################################################################################
+
+
 version: '3.3'
 services:
   
@@ -7,4 +15,8 @@ services:
 
     ports:
       - "27017:27017"
+# networks:
+#   default:
+#     external:
+#       name: docker-network
      
