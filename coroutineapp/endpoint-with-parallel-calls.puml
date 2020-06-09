@@ -1,0 +1,12 @@
+@startuml
+Client -> SomeResource: /executeAsync
+SomeResource -> Service: executeAsync()
+Service -/ ExternalService: callA
+Service -/ ExternalService: callB
+Service -/ ExternalService: callC
+create Result
+Service -> Result: new(resultA, resultB, resultC)
+Service -> MongoRepository: save(result)
+Service --> SomeResource: result
+SomeResource --> Client: json
+@enduml

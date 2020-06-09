@@ -1,7 +1,7 @@
 # Kotlin Coroutine Benchmark
 
 ## Description
-Simple benchmark to compare kotlin coroutine rest service against non-coroutine ones.
+Simple benchmark to compare kotlin coroutine rest service against non-coroutine one.
 
 ## Objectives
 The main focus here is compare nonblocking coroutines and thread-pre-request approaches. So im not worried about the throughput i can get, the endpoint under test is very simple, i wanna just compare the results with and without coroutines.
@@ -11,8 +11,41 @@ The service under test is very simple. It simulates a service that does 3 GETs, 
 
 The goal is simulate a endpoint with some IOs and a little of CPU usage
 
+The endpoint has two methods /execute and /executeAsync, the only differences is that
+/executeAsync does the GETs to external service in parallel and /execute does in sequencial.
+
+#### /execute - Non parallel calls
+
+![](readme_resources/endpoint_without_parallel_calls.png)
+
+#### /executeAsync - parallel calls
+
+![](readme_resources/endpoint_without_parallel_calls.png)
+
+## JMeter Test
+
+| Paramter          | Value      |
+|-------------------|------------|
+| Concurrent users  | 20         |
+| Loop count        | 10         |
+| Time beween calls | 300ms      |
+
 
 ## Results 
+
+### General Summary
+| Scenario                                | Thoughtput |   Time  |
+|-----------------------------------------|------------|---------|
+| Coroutine 128MB of memory - parallel    | 29.6/sec   |  7 secs |
+| Coroutine 64MB of memory - parallel     | 28.8/sec   |  7 secs |
+| Coroutine 64MB of memory                | 17.2/sec   | 12 secs |
+| Coroutine 128MB of memory               | 15.9/sec   | 12 secs |
+| NonCoroutine 128MB of memory            | 15.0/sec   | 13 secs |
+| NonCoroutine 64MB of memory             |  8.1/sec   | 25 secs |
+| NonCoroutine 128MB of memory - parallel |  7.1/sec   | 28 secs |
+| NonCoroutine 64MB of memory - parallel  |  5.6/sec   | 35 secs |
+
+
 
 ### NonCoroutine 128MB of memory
 
@@ -29,9 +62,6 @@ The goal is simulate a endpoint with some IOs and a little of CPU usage
 #### JMeter Summary
 
 ![](readme_resources/128mb/noncoroutine-128MB-jmeter.png)
-
-
-
 
 
 ### NonCoroutine 128MB of memory - Parallel Calls
