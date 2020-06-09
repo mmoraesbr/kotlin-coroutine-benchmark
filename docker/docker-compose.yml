@@ -15,8 +15,8 @@ services:
 
     ports:
       - "27017:27017"
-# networks:
-#   default:
-#     external:
-#       name: docker-network
+networks:
+  default:
+    external:
+      name: docker-network
      

@@ -1,4 +1,4 @@
-package lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.service
+package lab.kotlin.coroutine.benchmark.coroutineapp.coroutineapp.domain
 
 import org.springframework.data.annotation.Id
 

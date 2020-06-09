@@ -1,6 +1,8 @@
 package lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.service
 
-import org.apache.http.client.HttpClient
+import lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.domain.ResultA
+import lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.domain.ResultB
+import lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.domain.ResultC
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.scheduling.annotation.Async
@@ -8,8 +10,6 @@ import org.springframework.stereotype.Component
 import org.springframework.web.client.AsyncRestTemplate
 import org.springframework.web.client.RestTemplate
 import java.util.concurrent.CompletableFuture
-import java.util.concurrent.Future
-import java.util.concurrent.FutureTask
 
 @Component
 class ExternalService {

@@ -1,9 +1,10 @@
 package lab.kotlin.coroutine.benchmark.coroutineapp.coroutineapp.service
 
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.reactive.awaitFirst
-import kotlinx.coroutines.withContext
+import lab.kotlin.coroutine.benchmark.coroutineapp.coroutineapp.domain.Result
+import lab.kotlin.coroutine.benchmark.coroutineapp.coroutineapp.domain.ResultRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -28,7 +29,7 @@ class Service {
         return result
     }
 
-    suspend fun executeAsync() = withContext(Dispatchers.IO) {
+    suspend fun executeAsync() = coroutineScope {
         val serviceA = async { externalService.callA() }
         val serviceB = async { externalService.callB() }
         val serviceC = async { externalService.callC() }

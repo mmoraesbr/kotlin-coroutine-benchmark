@@ -2,15 +2,15 @@ package lab.kotlin.coroutine.benchmark.coroutineapp.coroutineapp.domain
 
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
-import java.time.LocalDateTime
+import java.util.*
 
 @Document
-class LinkTreeDocument(
-        url: String) {
+data class Result(
+        val resultA: ResultA,
+        val resultB: ResultB,
+        val resultC: ResultC
+) {
     @Id
-    var url: String = url
-        private set
-
-    var lastVisited: LocalDateTime = LocalDateTime.now()
+    var id: String = UUID.randomUUID().toString()
         private set
 }

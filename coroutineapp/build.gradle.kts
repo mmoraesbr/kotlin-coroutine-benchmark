@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 class Versions() {
 	companion object {
+		const val kotlin = "1.3.72"
 		const val coroutines = "1.3.7"
 	}
 }
@@ -32,10 +33,6 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
-//	implementation("org.mongodb:mongodb-driver")
-//	implementation("org.mongodb:mongodb-driver-async")
-//	implementation("org.mongodb:mongodb-driver-reactivestreams")
-
 	implementation(group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version = Versions.coroutines)
 	implementation(group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-reactor", version = Versions.coroutines)
 
@@ -46,6 +43,7 @@ dependencies {
 
 tasks.bootRun {
 	jvmArgs("-Xmx128M")
+//	jvmArgs("-Xmx32M", "-XX:ThreadStackSize=512")
 }
 
 tasks.withType<Test> {
@@ -55,6 +53,6 @@ tasks.withType<Test> {
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
-		jvmTarget = "1.8"
+		jvmTarget = "11"
 	}
 }
