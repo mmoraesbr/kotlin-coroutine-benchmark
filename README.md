@@ -1,7 +1,8 @@
 # Kotlin Coroutine Benchmark
 
 ## Description
-Simple benchmark to compare kotlin coroutine rest service against non-coroutine one.
+This is simple benchmark to compare kotlin coroutine rest service against non-coroutine one.
+It also serves as a SpringBoot Coroutine sample application.
 
 ## Objectives
 The main focus here is compare nonblocking coroutines and thread-pre-request approaches. So im not worried about the throughput i can get, the endpoint under test is very simple, i wanna just compare the results with and without coroutines.
@@ -66,14 +67,14 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Scenario                                 | Thoughtput |   Time  |
 |------------------------------------------|------------|---------|
-| /executeAsync Coroutine 128MB of memory   | 29.6/sec   |  7 secs |
-| /executeAsync Coroutine 64MB of memory    | 28.8/sec   |  7 secs |
-| /executeAsync NonCoroutine 128MB of memory| 21.2/sec   |  9 secs |
-| /executeAsync NonCoroutine 64MB of memory | 21.1/sec   |  9 secs |
-| /execute Coroutine 64MB of memory         | 17.2/sec   | 12 secs |
-| /execute Coroutine 128MB of memory        | 15.9/sec   | 12 secs |
-| /execute NonCoroutine 128MB of memory     | 15.0/sec   | 13 secs |
-| /execute NonCoroutine 64MB of memory      |  8.1/sec   | 25 secs |
+| /executeAsync Coroutine 128MB of memory   | 32.5/sec  |  6 secs |
+| /executeAsync Coroutine 64MB of memory    | 24.4/sec  |  8 secs |
+| /executeAsync NonCoroutine 128MB of memory| 21.2/sec  |  9 secs |
+| /executeAsync NonCoroutine 64MB of memory | 21.1/sec  |  9 secs |
+| /execute Coroutine 128MB of memory        | 15.9/sec  | 12 secs |
+| /execute NonCoroutine 128MB of memory     | 15.0/sec  | 13 secs |
+| /execute Coroutine 64MB of memory         | 15.1/sec  | 13 secs |
+| /execute NonCoroutine 64MB of memory      |  8.1/sec  | 25 secs |
 
 ### Testing with 128MB of ram
 
@@ -132,8 +133,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 7 seconds  |
-| Thoughtput       | 29.6/sec   |
+| Time to complete | 6 seconds  |
+| Thoughtput       | 32.5/sec   |
 
 
 ##### JVM Monitor
@@ -185,8 +186,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 12 seconds |
-| Thoughtput       | 17.2/sec     |
+| Time to complete | 13 seconds |
+| Thoughtput       | 15.1/sec   |
 
 
 ##### JVM Monitor
@@ -202,8 +203,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 7 seconds |
-| Thoughtput       | 28.8/sec     |
+| Time to complete | 8 seconds  |
+| Thoughtput       | 24.4/sec   |
 
 
 ##### JVM Monitor
