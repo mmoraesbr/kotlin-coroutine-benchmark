@@ -24,21 +24,21 @@ The endpoint has two methods /execute and /executeAsync, the only differences is
 
 ## Running
 
-### Start mongodb
+### Start local mongodb
 
 ```
 $ cd kotlin-coroutine-benchmark/docker
 $ docker-compose up
 ```
 
-### Start NonCoroutine
+### Start NonCoroutine application
 
 ```
 $ cd kotlin-coroutine-benchmark/noncoroutineapp
 $ ./gradlew bootRun
 ```
 
-### Start Coroutine
+### Start Coroutine application
 
 ```
 $ cd kotlin-coroutine-benchmark/coroutineapp
