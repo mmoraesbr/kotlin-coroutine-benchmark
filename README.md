@@ -1,4 +1,4 @@
-# Kotlin Micro Benchmark
+# Kotlin Coroutine Benchmark
 
 ## Description
 Simple benchmark to compare kotlin coroutine rest service against non-coroutine ones.
