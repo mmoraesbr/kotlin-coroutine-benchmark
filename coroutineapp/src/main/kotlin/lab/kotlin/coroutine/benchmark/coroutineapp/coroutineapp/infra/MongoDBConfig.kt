@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 
 
 @Configuration
-class MoongoDBConfig : AbstractReactiveMongoConfiguration() {
+class MongoDBConfig : AbstractReactiveMongoConfiguration() {
 
     @Bean
     fun mongoClient(): MongoClient {

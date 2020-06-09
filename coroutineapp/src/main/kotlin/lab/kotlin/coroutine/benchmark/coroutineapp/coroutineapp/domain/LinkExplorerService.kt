@@ -1,7 +1,7 @@
 package lab.kotlin.coroutine.benchmark.coroutineapp.coroutineapp.domain
 
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.reactive.awaitFirstOrNull
+import kotlinx.coroutines.reactive.awaitFirst
 import kotlinx.coroutines.withContext
 import lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.domain.TargetHost
 import org.springframework.beans.factory.annotation.Autowired
@@ -17,10 +17,8 @@ class LinkExplorerService {
     @Autowired
     private lateinit var linkFinder: LinkFinder
 
-    suspend fun execute(target: TargetHost): LinkTree {
-        return withContext(Dispatchers.IO) {
-            explore(target) ?: LinkTree(url = "ERROR")
-        }
+    suspend fun execute(target: TargetHost) = withContext(Dispatchers.IO) {
+        explore(target) ?: LinkTree(url = "ERROR")
     }
 
     private suspend fun explore(target: TargetHost, currentDepth: Int = 0, explored: MutableSet<String> = HashSet()): LinkTree? {
@@ -29,7 +27,9 @@ class LinkExplorerService {
             return null
         }
 
-        save(target.url)
+        linkTreeDocumentRepository.save(
+                LinkTreeDocument(target.url)
+        ).awaitFirst()
 
         val links = linkFinder.find(target.url).toList()
 
@@ -40,11 +40,7 @@ class LinkExplorerService {
                 childs = childs
         )
 
-        val size = if (target.maxChilds < 0) {
-            links.size
-        } else {
-            min(target.maxChilds, links.size)
-        }
+        val size = getSize(target, links)
 
         for (index in 0 until size) {
             val childUrl = links[index]
@@ -61,18 +57,9 @@ class LinkExplorerService {
         return root
     }
 
-    private suspend fun save(url: String) {
-        var entity = linkTreeDocumentRepository.save(LinkTreeDocument(url)).awaitFirstOrNull()
-
-        if (entity == null) {
-            entity = LinkTreeDocument(url)
-        }
-
-        entity.visited()
-        linkTreeDocumentRepository.save(entity)
+    private fun getSize(target: TargetHost, links: List<String>) = if (target.maxChilds < 0) {
+        links.size
+    } else {
+        min(target.maxChilds, links.size)
     }
 }
-
-private fun LinkTree.toDocument() = LinkTreeDocument(
-        url = this.url
-)

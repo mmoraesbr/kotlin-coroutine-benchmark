@@ -9,6 +9,7 @@ class Versions() {
 plugins {
 	id("org.springframework.boot") version "2.3.0.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
+	id("org.jetbrains.kotlin.plugin.noarg") version "1.3.72"
 	kotlin("jvm") version "1.3.72"
 	kotlin("plugin.spring") version "1.3.72"
 }
@@ -16,6 +17,8 @@ plugins {
 group = "lab.kotlin.coroutine.benchmark.coroutineapp"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
+
+apply(plugin = "org.jetbrains.kotlin.plugin.noarg")
 
 repositories {
 	mavenCentral()
@@ -42,7 +45,7 @@ dependencies {
 }
 
 tasks.bootRun {
-	jvmArgs("-Xmx64M")
+	jvmArgs("-Xmx128M")
 }
 
 tasks.withType<Test> {

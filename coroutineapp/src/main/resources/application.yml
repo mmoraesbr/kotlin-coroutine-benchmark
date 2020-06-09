@@ -1,0 +1,6 @@
+spring:
+  port: 8080
+
+external:
+  service:
+    url: https://run.mocky.io/v3/5bbfd767-54d4-4ad8-bd80-ff2105bc65e3

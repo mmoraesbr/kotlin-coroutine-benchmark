@@ -1,25 +1,28 @@
 package lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.domain
 
-import lab.kotlin.coroutine.benchmark.noncoroutineapp.noncoroutineapp.infra.HttpLinkFinder
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import kotlin.math.min
 
 @Service
 class LinkExplorerService {
+    @Autowired
+    protected lateinit var linkTreeDocumentRepository: LinkTreeDocumentRepository
 
     @Autowired
     private lateinit var linkFinder: LinkFinder
 
-    fun execute(target: TargetHost): LinkTree {
-        return explore(target) ?: LinkTree(url = "ERROR")
-    }
+    fun execute(target: TargetHost) = explore(target) ?: LinkTree(url = "ERROR")
 
     private fun explore(target: TargetHost, currentDepth: Int = 0, explored: MutableSet<String> = HashSet()): LinkTree? {
 
         if (explored.contains(target.url)) {
             return null
         }
+
+        linkTreeDocumentRepository.save(
+                LinkTreeDocument(target.url)
+        )
 
         val links = linkFinder.find(target.url).toList()
 
@@ -30,11 +33,7 @@ class LinkExplorerService {
                 childs = childs
         )
 
-        val size = if (target.maxChilds < 0) {
-            links.size
-        } else {
-            min(target.maxChilds, links.size)
-        }
+        val size = getSize(target, links)
 
         for (index in 0 until size) {
             val childUrl = links[index]
@@ -49,5 +48,11 @@ class LinkExplorerService {
         }
 
         return root
+    }
+
+    private fun getSize(target: TargetHost, links: List<String>) = if (target.maxChilds < 0) {
+        links.size
+    } else {
+        min(target.maxChilds, links.size)
     }
 }
