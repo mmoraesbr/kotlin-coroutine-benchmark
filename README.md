@@ -20,7 +20,7 @@ The endpoint has two methods /execute and /executeAsync, the only differences is
 
 #### /executeAsync - parallel calls
 
-![](readme_resources/endpoint_without_parallel_calls.png)
+![](readme_resources/endpoint_with_parallel_calls.png)
 
 ## Running
 
