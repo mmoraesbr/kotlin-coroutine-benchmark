@@ -28,7 +28,7 @@ dependencies {
 }
 
 tasks.bootRun {
-	jvmArgs("-Xmx128M")
+	jvmArgs("-Xmx64M")
 }
 
 tasks.withType<Test> {

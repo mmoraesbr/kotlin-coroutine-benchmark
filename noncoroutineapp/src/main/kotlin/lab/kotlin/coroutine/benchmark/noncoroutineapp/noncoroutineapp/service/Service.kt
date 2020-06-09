@@ -15,8 +15,6 @@ class Service {
     @Autowired
     private lateinit var resultRepository: ResultRepository
 
-    private val asyncRestTemplate = AsyncRestTemplate()
-
     fun execute(): Result {
         val result = Result(
                 resultA = externalService.callA(),
