@@ -22,6 +22,12 @@ The endpoint has two methods /execute and /executeAsync, the only differences is
 
 ![](readme_resources/endpoint_without_parallel_calls.png)
 
+## Considerations
+This benchmarch was executed in my machine with jmeter, springboot app and mongodb running local 
+and the endpoint simulating a external service was on http://mocky.io site. 
+
+My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
+
 ## JMeter Test
 
 | Paramter          | Value      |
