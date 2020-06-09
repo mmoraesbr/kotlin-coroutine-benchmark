@@ -22,6 +22,29 @@ The endpoint has two methods /execute and /executeAsync, the only differences is
 
 ![](readme_resources/endpoint_without_parallel_calls.png)
 
+## Running
+
+### Start mongodb
+
+```
+$ cd kotlin-coroutine-benchmark/docker
+$ docker-compose up
+```
+
+### Start NonCoroutine
+
+```
+$ cd kotlin-coroutine-benchmark/noncoroutineapp
+$ ./gradlew bootRun
+```
+
+### Start Coroutine
+
+```
+$ cd kotlin-coroutine-benchmark/coroutineapp
+$ ./gradlew bootRun
+```
+
 ## Considerations
 This benchmarch was executed in my machine with jmeter, springboot app and mongodb running local 
 and the endpoint simulating a external service was on http://mocky.io site. 
