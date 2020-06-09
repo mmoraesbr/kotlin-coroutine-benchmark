@@ -64,17 +64,16 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 ### General Summary
 
-| Scenario                                | Thoughtput |   Time  |
-|-----------------------------------------|------------|---------|
-| Coroutine 128MB of memory - parallel    | 29.6/sec   |  7 secs |
-| Coroutine 64MB of memory - parallel     | 28.8/sec   |  7 secs |
-| Coroutine 64MB of memory                | 17.2/sec   | 12 secs |
-| Coroutine 128MB of memory               | 15.9/sec   | 12 secs |
-| NonCoroutine 128MB of memory            | 15.0/sec   | 13 secs |
-| NonCoroutine 128MB of memory - parallel | 10.8/sec   | 18 secs |
-| NonCoroutine 64MB of memory             |  8.1/sec   | 25 secs |
-| NonCoroutine 64MB of memory - parallel  |  7.7/sec   | 26 secs |
-
+| Scenario                                 | Thoughtput |   Time  |
+|------------------------------------------|------------|---------|
+| /executeAsync Coroutine 128MB of memory   | 29.6/sec   |  7 secs |
+| /executeAsync Coroutine 64MB of memory    | 28.8/sec   |  7 secs |
+| /executeAsync NonCoroutine 128MB of memory| 21.2/sec   |  9 secs |
+| /executeAsync NonCoroutine 64MB of memory | 21.1/sec   |  9 secs |
+| /execute Coroutine 64MB of memory         | 17.2/sec   | 12 secs |
+| /execute Coroutine 128MB of memory        | 15.9/sec   | 12 secs |
+| /execute NonCoroutine 128MB of memory     | 15.0/sec   | 13 secs |
+| /execute NonCoroutine 64MB of memory      |  8.1/sec   | 25 secs |
 
 ### Testing with 128MB of ram
 
@@ -99,8 +98,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 18 seconds |
-| Thoughtput       | 10.8/sec   |
+| Time to complete |  9 seconds |
+| Thoughtput       |   21.2/sec |
 
 
 ##### JVM Monitor
@@ -112,13 +111,12 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 ![](readme_resources/128mb/noncoroutine-128MB-jmeter-parallel.png)
 
 
-
 #### /execute Coroutine 128MB of memory
 
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 12 seconds |
-| Thoughtput       | 15.9/sec     |
+| Thoughtput       | 15.9/sec   |
 
 
 ##### JVM Monitor
@@ -134,8 +132,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 7 seconds |
-| Thoughtput       | 29.6/sec     |
+| Time to complete | 7 seconds  |
+| Thoughtput       | 29.6/sec   |
 
 
 ##### JVM Monitor
@@ -170,8 +168,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 26 seconds |
-| Thoughtput       | 7.7/sec     |
+| Time to complete | 9 seconds  |
+| Thoughtput       | 21.1/sec   |
 
 
 ##### JVM Monitor

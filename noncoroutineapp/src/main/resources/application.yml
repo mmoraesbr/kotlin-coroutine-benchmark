@@ -2,8 +2,8 @@ spring:
   port: 8080
 
 async:
-  pool-core-size: 5
-  pool-max-size: 30
+  pool-core-size: 30
+  pool-max-size: 50
   queue-size: 50
 
 external:

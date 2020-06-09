@@ -42,7 +42,7 @@ dependencies {
 }
 
 tasks.bootRun {
-	jvmArgs("-Xmx64M")
+	jvmArgs("-Xmx128M")
 //	jvmArgs("-Xmx32M", "-XX:ThreadStackSize=512")
 }
 
