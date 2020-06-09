@@ -34,19 +34,19 @@ class ExternalService {
             restTemplate.getForObject(externalServiceUrl, ResultC::class.java)!!
 
 
-    @Async
+    @Async("asyncExecutor")
     fun callAAsync(): CompletableFuture<ResultA> {
         val result = restTemplate.getForObject(externalServiceUrl, ResultA::class.java)!!
         return CompletableFuture.completedFuture(result)
     }
 
-    @Async
+    @Async("asyncExecutor")
     fun callBAsync(): CompletableFuture<ResultB> {
         val result = restTemplate.getForObject(externalServiceUrl, ResultB::class.java)!!
         return CompletableFuture.completedFuture(result)
     }
 
-    @Async
+    @Async("asyncExecutor")
     fun callCAsync(): CompletableFuture<ResultC> {
         val result = restTemplate.getForObject(externalServiceUrl, ResultC::class.java)!!
         return CompletableFuture.completedFuture(result)

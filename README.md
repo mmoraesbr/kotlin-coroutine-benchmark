@@ -70,10 +70,15 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Coroutine 64MB of memory                | 17.2/sec   | 12 secs |
 | Coroutine 128MB of memory               | 15.9/sec   | 12 secs |
 | NonCoroutine 128MB of memory            | 15.0/sec   | 13 secs |
+| NonCoroutine 128MB of memory - parallel | 10.8/sec   | 18 secs |
 | NonCoroutine 64MB of memory             |  8.1/sec   | 25 secs |
-| NonCoroutine 128MB of memory - parallel |  7.1/sec   | 28 secs |
-| NonCoroutine 64MB of memory - parallel  |  5.6/sec   | 35 secs |
+| NonCoroutine 64MB of memory - parallel  |  7.7/sec   | 26 secs |
 
+| Time to complete | 18 seconds |
+| Thoughtput       | 10.8/sec   |
+
+]| Time to complete | 26 seconds |
+| Thoughtput       | 7.7/sec     |
 
 
 ### NonCoroutine 128MB of memory
@@ -97,8 +102,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 28 seconds |
-| Thoughtput       | 7.1/sec     |
+| Time to complete | 18 seconds |
+| Thoughtput       | 10.8/sec   |
 
 
 #### JVM Monitor
@@ -167,8 +172,8 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Meter            | Value      |
 |------------------|------------|
-| Time to complete | 35 seconds |
-| Thoughtput       | 5.6/sec     |
+| Time to complete | 26 seconds |
+| Thoughtput       | 7.7/sec     |
 
 
 #### JVM Monitor
