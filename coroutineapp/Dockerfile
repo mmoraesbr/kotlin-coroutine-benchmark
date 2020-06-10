@@ -1,4 +1,4 @@
-FROM image
+FROM adoptopenjdk/openjdk11-openj9
 
 COPY build/distributions/*boot*.zip /coroutineapp.zip
 
