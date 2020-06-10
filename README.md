@@ -17,13 +17,30 @@ The goal is simulate an endpoint with some IOs and a little of CPU usage.
 The endpoint has two methods */execute* and */executeAsync*, the only differences is that
 /executeAsync does the GETs to external service in parallel and */execute* does it in sequence.
 
-#### /execute - Non parallel calls
+#### /execute - with parallel calls
 
 ![](readme_resources/endpoint_without_parallel_calls.png)
 
-#### /executeAsync - parallel calls
+#### /executeAsync - without parallel calls
 
 ![](readme_resources/endpoint_with_parallel_calls.png)
+
+
+## Applications
+
+### NonCoroutineApp
+SpringBoot application using thread-per-request (blocking) approach. 
+
+
+
+coroutineapp/src/main/kotlin/lab/kotlin/coroutine/benchmark/coroutineapp/coroutineapp/service/Service.kt#L32
+
+### CoroutineApp
+SpringBoot application using coroutine (nonblocking) approach. 
+
+- [executeAsync](coroutineapp/src/main/kotlin/lab/kotlin/coroutine/benchmark/coroutineapp/coroutineapp/service/Service.kt#L32)()
+
+
 
 ## Running
 
