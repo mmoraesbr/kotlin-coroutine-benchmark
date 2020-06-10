@@ -34,7 +34,7 @@ SpringBoot application using thread-per-request (blocking) approach.
 - [execute\(\)](https://github.com/mmoraesbr/kotlin-coroutine-benchmark/blob/master/noncoroutineapp/src/main/kotlin/lab/kotlin/coroutine/benchmark/noncoroutineapp/noncoroutineapp/service/Service.kt#L18)
 - [executeAsync\(\)](https://github.com/mmoraesbr/kotlin-coroutine-benchmark/blob/master/noncoroutineapp/src/main/kotlin/lab/kotlin/coroutine/benchmark/noncoroutineapp/noncoroutineapp/service/Service.kt#L30)
 
-*executeAsync()* was implemented using *@Async SpringBoot annotation*. [code](noncoroutineapp/src/main/kotlin/lab/kotlin/coroutine/benchmark/noncoroutineapp/noncoroutineapp/service/ExternalService.kt#L38) 
+*executeAsync()* was implemented using *@Async SpringBoot annotation*. [see](noncoroutineapp/src/main/kotlin/lab/kotlin/coroutine/benchmark/noncoroutineapp/noncoroutineapp/service/ExternalService.kt#L38) 
 
 ### CoroutineApp
 SpringBoot application using coroutine (nonblocking) approach. 

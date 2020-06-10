@@ -8,6 +8,7 @@ class Versions() {
 }
 
 plugins {
+	application
 	id("org.springframework.boot") version "2.3.0.RELEASE"
 	id("io.spring.dependency-management") version "1.0.9.RELEASE"
 	id("org.jetbrains.kotlin.plugin.noarg") version "1.3.72"
@@ -15,14 +16,19 @@ plugins {
 	kotlin("plugin.spring") version "1.3.72"
 }
 
+apply(plugin = "org.jetbrains.kotlin.plugin.noarg")
+
 group = "lab.kotlin.coroutine.benchmark.coroutineapp"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
-apply(plugin = "org.jetbrains.kotlin.plugin.noarg")
 
 repositories {
 	mavenCentral()
+}
+
+application {
+	mainClass.set("lab.kotlin.coroutine.benchmark.coroutineapp.coroutineapp.CoroutineappApplicationKt")
 }
 
 dependencies {
