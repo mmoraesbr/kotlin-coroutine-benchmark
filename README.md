@@ -1,19 +1,21 @@
 # Kotlin Coroutine Benchmark
 
 ## Description
-This is simple benchmark to compare kotlin coroutine rest service against non-coroutine one.
+This is a simple benchmark to compare kotlin coroutine rest service against non-coroutine one.
 It also serves as a SpringBoot Coroutine sample application.
 
 ## Objectives
-The main focus here is compare nonblocking coroutines and thread-pre-request approaches. So im not worried about the throughput i can get, the endpoint under test is very simple, i wanna just compare the results with and without coroutines.
+Compare nonblocking coroutines and thread-pee-request approaches. 
+There is no concern about stressing the throughput, the endpoint under test is very simple, the goal is compare the results with and without coroutines.
 
 ## Endpoint under test
-The service under test is very simple. It simulates a service that does 3 GETs, simulating 3 others restful micro-services returning json, create a new object composed by this 3 jsons, save it in a mongodb collections and return it to the client.
+The service under test is very simple. It simulates a service calling 3 others micro-services to compose a new object, 
+save it into mongodb and returns it to the client.
 
-The goal is simulate a endpoint with some IOs and a little of CPU usage
+The goal is simulate an endpoint with some IOs and a little of CPU usage.
 
 The endpoint has two methods */execute* and */executeAsync*, the only differences is that
-/executeAsync does the GETs to external service in parallel and */execute* does in sequencial.
+/executeAsync does the GETs to external service in parallel and */execute* does it in sequence.
 
 #### /execute - Non parallel calls
 
@@ -47,18 +49,18 @@ $ ./gradlew bootRun
 ```
 
 ## Considerations
-This benchmarch was executed in my machine with jmeter, springboot app and mongodb running local 
-and the endpoint simulating a external service was on http://mocky.io site. 
+The tests was executed on my machine with jmeter, springboot app and a local mongodb.
+The endpoint simulating an external service is on http://mocky.io site. 
 
-My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
+My machine is an intel core i7 8th and 4 cores with 16mb of RAM.
 
 ## JMeter Test
 
-| Paramter          | Value      |
-|-------------------|------------|
-| Concurrent users  | 20         |
-| Loop count        | 10         |
-| Time beween calls | 300ms      |
+| Parameter           | Value      |
+|--------------------|------------|
+| Concurrent users   | 20         |
+| Loop count         | 10         |
+| Time between calls | 300ms      |
 
 
 ## Results 
@@ -83,7 +85,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 13 seconds |
-| Thoughtput       | 15/sec     |
+| Throughput       | 15/sec     |
 
 
 ##### JVM Monitor
@@ -100,7 +102,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete |  9 seconds |
-| Thoughtput       |   21.2/sec |
+| Throughput       |   21.2/sec |
 
 
 ##### JVM Monitor
@@ -117,7 +119,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 12 seconds |
-| Thoughtput       | 15.9/sec   |
+| Throughput       | 15.9/sec   |
 
 
 ##### JVM Monitor
@@ -134,7 +136,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 6 seconds  |
-| Thoughtput       | 32.5/sec   |
+| Throughput       | 32.5/sec   |
 
 
 ##### JVM Monitor
@@ -153,7 +155,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 25 seconds |
-| Thoughtput       | 8.1/sec     |
+| Throughput       | 8.1/sec     |
 
 
 ##### JVM Monitor
@@ -170,7 +172,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 9 seconds  |
-| Thoughtput       | 21.1/sec   |
+| Throughput       | 21.1/sec   |
 
 
 ##### JVM Monitor
@@ -187,7 +189,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 13 seconds |
-| Thoughtput       | 15.1/sec   |
+| Throughput       | 15.1/sec   |
 
 
 ##### JVM Monitor
@@ -204,7 +206,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 | Meter            | Value      |
 |------------------|------------|
 | Time to complete | 8 seconds  |
-| Thoughtput       | 24.4/sec   |
+| Throughput       | 24.4/sec   |
 
 
 ##### JVM Monitor
