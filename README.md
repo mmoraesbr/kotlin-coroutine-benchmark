@@ -12,8 +12,8 @@ The service under test is very simple. It simulates a service that does 3 GETs, 
 
 The goal is simulate a endpoint with some IOs and a little of CPU usage
 
-The endpoint has two methods /execute and /executeAsync, the only differences is that
-/executeAsync does the GETs to external service in parallel and /execute does in sequencial.
+The endpoint has two methods */execute* and */executeAsync*, the only differences is that
+/executeAsync does the GETs to external service in parallel and */execute* does in sequencial.
 
 #### /execute - Non parallel calls
 
@@ -67,7 +67,7 @@ My machine is a intel core i7 8th and 4 cores with 16mb of RAM.
 
 | Scenario                                 | Thoughtput |   Time  |                                      |
 |------------------------------------------|------------|---------|--------------------------------------|
-| /executeAsync Coroutine 128MB of memory   | 32.5/sec  |  6 secs |[details](#executeAsync-Coroutine-128MB-of-memory)   |
+| */executeAsync* Coroutine 128MB of memory   | 32.5/sec  |  6 secs |[details](#executeAsync-Coroutine-128MB-of-memory)   |
 | /executeAsync Coroutine 64MB of memory    | 24.4/sec  |  8 secs |[details](#executeAsync-Coroutine-64MB-of-memory)    |
 | /executeAsync NonCoroutine 128MB of memory| 21.2/sec  |  9 secs |[details](#executeAsync-NonCoroutine)                |
 | /executeAsync NonCoroutine 64MB of memory | 21.1/sec  |  9 secs |[details](#executeAsync-NonCoroutine-64MB-of-memory) |
