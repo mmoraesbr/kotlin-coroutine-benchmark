@@ -38,4 +38,19 @@ class ExternalService {
             .uri(externalServiceUrl)
             .retrieve().awaitBody<ResultC>()
 
+    fun callAWithReactor() = webClient
+            .get()
+            .uri(externalServiceUrl)
+            .retrieve().bodyToMono(ResultA::class.java)
+
+    fun callBWithReactor() = webClient
+            .get()
+            .uri(externalServiceUrl)
+            .retrieve().bodyToMono(ResultB::class.java)
+
+    fun callCWithReactor() = webClient
+            .get()
+            .uri(externalServiceUrl)
+            .retrieve().bodyToMono(ResultC::class.java)
+
 }
