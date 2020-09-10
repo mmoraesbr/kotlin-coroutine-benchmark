@@ -84,7 +84,7 @@ My machine is an intel core i7 8th and 4 cores with 16mb of RAM.
 
 ### General Summary
 
-| Scenario                                 | Thoughtput |   Time  |                                      |
+| Scenario                                 | Throughput |   Time  |                                      |
 |------------------------------------------|------------|---------|--------------------------------------|
 | */executeAsync* Coroutine 128MB of memory   | 32.5/sec  |  6 secs |[details](#executeAsync-Coroutine-128MB-of-memory)   |
 | */executeAsync* Coroutine 64MB of memory    | 24.4/sec  |  8 secs |[details](#executeAsync-Coroutine-64MB-of-memory)    |
